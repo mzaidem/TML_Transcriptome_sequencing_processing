@@ -1,7 +1,17 @@
+### The reference for STAR: Spliced Transcripts Alignment to a Reference © Alexander Dobin, 2009-2024 https://www.ncbi.nlm.nih.gov/pubmed/23104886
+### https://github.com/alexdobin/STAR.git
+
+### STAR was compiled and installed in a conda environment
+
+
 ### The genome used has been indexed prior to alignment, based on the expected read lenght of the library being analyzed
 ### A corresponding GTF file accompanying the genome reference must be downloaded/generated
 ### file PATHS to the indexed genome reference directory and raw files are variable, depending on set-up
-### STAR version used, at the time of writing:
+
+
+### Generate the genome index
+STAR --runThreadN 6 --runMode genomeGenerate --genomeDir /local/home/dops0822/Genome_references_2023_mzaidem/NAM4_indexed149 --genomeFastaFiles /local/home/dops0822/Genome_references_2023_mzaidem/NAM5_indexed149/Zea_mays.Zm-B73-REFERENCE-NAM-5.0.dna.toplevel.fa --sjdbGTFfile /local/home/dops0822/Genome_references_2023_mzaidem/NAM5_indexed149/Zea_mays.Zm-B73-REFERENCE-NAM-5.0.55.gtf --sjdbOverhang 149 
+
 
 ### LINES AFTER THIS COMMENT IS THE SHELL SCRIPT USED to align the reads to the indexed genome reference using STAR:
     #!/bin/bash  
