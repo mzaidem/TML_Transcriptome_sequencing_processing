@@ -1,0 +1,15 @@
+### Generate the fa file for the transcriptome 
+
+gffread -w gff_Zm-B73-REFERENCE-GRAMENE-4.0.fa -g  /local/home/dops0822/Genome_reference_B73v4_2023_mzaidem/Zm-B73-REFERENCE-GRAMENE-4.0.fa /local/home/dops0822/Genome_reference_B73v4_2023_mzaidem/Zm-B73-REFERENCE-GRAMENE-4.0_Zm00001d.1.gffread.gtf 
+
+
+
+#!/bin/bash 
+cd /local/home/dops0822/STAR_output_May23/Zea_mays_v4_sjtb 
+while read i; 
+
+do salmon quant --threads 12 --targets /local/home/dops0822/Genome_reference_B73v4_2023_mzaidem/gff_Zm-B73-REFERENCE-GRAMENE-4.0.fa --libType ISR --output /local/home/dops0822/STAR_Salmon_quantification_2023/Zea_mays_v4_149/salmon_quant_${i} -a /local/home/dops0822/STAR_output_May23/Zea_mays_v4_sjtb/${i}_Aligned.toTranscriptome.out.bam; done < /local/home/dops0822/scripts/maize_sample_list.txt; 
+
+echo "All done"; 
+
+exit 
