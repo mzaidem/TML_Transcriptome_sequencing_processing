@@ -1,8 +1,9 @@
 ### The genome used has been indexed prior to alignment, based on the expected read lenght of the library being analyzed
-### A corresponding GTF file accompanying the genome reference must be downloaded
+### A corresponding GTF file accompanying the genome reference must be downloaded/generated
 ### file PATHS to the indexed genome reference directory and raw files are variable, depending on set-up
+### STAR version used, at the time of writing:
 
-### THIS IS THE SHELL SCRIPT USED align the reads to the indexed genome reference using STAR:
+### LINES AFTER THIS COMMENT IS THE SHELL SCRIPT USED to align the reads to the indexed genome reference using STAR:
     #!/bin/bash  
     
     echo "The script starts now.";  
