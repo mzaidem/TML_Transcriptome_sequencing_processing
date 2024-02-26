@@ -1,0 +1,13 @@
+### The genome used has been indexed prior to alignment, based on the expected read lenght of the library being analyzed
+### A corresponding GTF file accompanying the genome reference must be downloaded
+### file PATHS to the indexed genome reference directory and raw files are variable, depending on set-up
+
+### THIS IS THE SHELL SCRIPT USED align the reads to the indexed genome reference using STAR:
+    #!/bin/bash  
+    
+    echo "The script starts now.";  
+     
+    while read i; do STAR --genomeDir /local/home/dops0822/Genome_reference_B73v4_2023_mzaidem --runThreadN 12 --readFilesIn /local/home/dops0822/Transcriptomes_Raw_data_2022_mzaidem/bsg-ftp.well.ox.ac.uk/221024_A00711_0635_BHTLCJDSX3/${i}_1.fastq.gz /local/home/dops0822/Transcriptomes_Raw_data_2022_mzaidem/bsg-ftp.well.ox.ac.uk/221024_A00711_0635_BHTLCJDSX3/${i}_2.fastq.gz --readFilesCommand zcat --sjdbGTFfile /local/home/dops0822/Genome_reference_B73v4_2023_mzaidem/Zm-B73-REFERENCE-GRAMENE-4.0_Zm00001d.1.gffread.gtf --sjdbScore 2 --sjdbOverhang 149 --twopassMode Basic --limitSjdbInsertNsj 1000000 --outFilterMultimapNmax 20 --alignSJoverhangMin 8 --alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverReadLmax 0.04 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 1000000 --outSAMunmapped Within --outFilterType BySJout --outSAMattributes NH HI AS NM MD --outSAMtype BAM SortedByCoordinate --quantMode TranscriptomeSAM GeneCounts --quantTranscriptomeBan IndelSoftclipSingleend --outFileNamePrefix /local/home/dops0822/STAR_output_May23/Zea_mays_v4_sjtb/${i}_; echo ${i}; done < /local/home/dops0822/scripts/maize_sample_list.txt;  
+    echo "All done";  
+    
+    exit 
